@@ -1,0 +1,163 @@
+#
+# Default configurations.
+#
+
+configVersion: 1
+shared:
+    extraJavaOpts: "-Xms512m -Xmx2g"
+    security:
+        exposeApplicationHeaders: false
+    logging:
+        consoleLog:
+            enabled: true
+            format: "jftext"
+        rotation:
+            maxSizeMb: 50
+            maxFiles: 5
+            compress: true
+    node:
+        ip: 0.0.0.0
+        id: "jfrog-container-registry"
+        haEnabled: false
+        taskAffinity: any
+    database:
+        type: derby
+frontend:
+    session:
+        timeMinutes: '30'
+    logging:
+        application:
+            level: info
+            rotation:
+                maxSizeMb: 50
+                maxFiles: 5
+        request:
+            rotation:
+                maxSizeMb: 50
+                maxFiles: 5
+metadata:
+    logging:
+        application:
+            level: info
+            console: false
+            packages:
+                common:
+                #level: debug
+                daos:
+                #level: warn
+            rotation:
+                maxFiles: 5
+                maxSizeMb: 50
+                compress: true
+        request:
+            console: false
+            rotation:
+                maxFiles: 5
+                maxSizeMb: 50
+                compress: true
+router:
+    logging:
+        application:
+            level: "info"
+            format: "jftext"
+            caller: false
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        traefik:
+            level: "info"
+            format: "jftext"
+            caller: false
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        request:
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+event:
+    logging:
+        application:
+            filePath: "event-service.log"
+            console: false
+            level: "info"
+            format: "jftext"
+            caller: false
+            packages:
+                events:
+                    level: "info"
+                authorization:
+                    level: warn
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        request:
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        metrics:
+            filePath: "event-metrics.log"
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+integration:
+    logging:
+        application:
+            filePath: "integration-service.log"
+            level: "info"
+            format: "jftext"
+            caller: false
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        request:
+            filePath: "integration-request.log"
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        metrics:
+            filePath: "integration-metrics.log"
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+observability:
+    logging:
+        application:
+            filePath: "observability-service.log"
+            level: "info"
+            format: "jftext"
+            caller: false
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        request:
+            filePath: "observability-request.log"
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5
+        metrics:
+            filePath: "observability-metrics.log"
+            console: false
+            rotation:
+                compress: true
+                maxSizeMb: 50
+                maxFiles: 5

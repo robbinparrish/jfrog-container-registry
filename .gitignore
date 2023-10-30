@@ -1,0 +1,24 @@
+#
+# .gitignore file - Ignore everything and recursive allow them.
+#
+
+#
+# Ignore everything.
+#
+*
+
+#
+# Recursive allow.
+#
+!.gitignore
+!README.md
+!docker-compose.yml
+!configs
+!configs/system.yaml
+!README.ssl-certs.md
+!configs/certs/
+!configs/certs/artifactory.mydomain.com.crt
+!configs/certs/artifactory.mydomain.com.key
+!configs/certs/README.md
+!configs/nginx/
+!configs/nginx/default.conf
